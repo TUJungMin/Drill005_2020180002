@@ -41,13 +41,13 @@ def move_character(start_x, start_y, target_x, target_y):
 def random_mouse():
     return random.randint(0, TUK_WIDTH), random.randint(0, TUK_HEIGHT)
 
+
 running = True
 hide_cursor()
 start_x, start_y = TUK_WIDTH // 2, TUK_HEIGHT // 2
+
 while running:
-
     target_x, target_y = random_mouse()
-
     start_x, start_y = move_character(start_x, start_y, target_x, target_y)
     handle_events()
 close_canvas()
