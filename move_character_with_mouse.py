@@ -1,6 +1,7 @@
 from pico2d import *
 import random
 
+
 TUK_WIDTH, TUK_HEIGHT = 1280, 1024
 open_canvas(TUK_WIDTH, TUK_HEIGHT)
 
@@ -24,6 +25,8 @@ def move_character(start_x, start_y, target_x, target_y):
     x, y = start_x, start_y
     frame = 0
 
+
+
     for i in range(0, 100 + 1, 2):
         clear_canvas()
         TUK_ground.draw(TUK_WIDTH // 2, TUK_HEIGHT // 2)
@@ -31,7 +34,10 @@ def move_character(start_x, start_y, target_x, target_y):
         t = i / 100
         x = (1 - t) * start_x + t * target_x
         y = (1 - t) * start_y + t * target_y
-        character.clip_draw(frame * 100, 100 * 1, 100, 100, x, y)
+        if x > target_x:
+            character.clip_draw(frame * 100, 0, 100, 100, x, y)
+        else:
+            character.clip_draw(frame * 100, 100 , 100, 100, x, y)
         frame = (frame + 1) % 8
         update_canvas()
         delay(0.02)  # 적절한 딜레이를 주어 움직임이 자연스럽게 보이도록 함
