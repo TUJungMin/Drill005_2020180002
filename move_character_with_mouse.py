@@ -37,7 +37,7 @@ def move_character(start_x, start_y, target_x, target_y):
         if x > target_x:
             character.clip_draw(frame * 100, 0, 100, 100, x, y)
         else:
-            character.clip_draw(frame * 100, 100 , 100, 100, x, y)
+            character.clip_draw(frame * 100, 100, 100, 100, x, y)
         frame = (frame + 1) % 8
         update_canvas()
         delay(0.02)  # 적절한 딜레이를 주어 움직임이 자연스럽게 보이도록 함
